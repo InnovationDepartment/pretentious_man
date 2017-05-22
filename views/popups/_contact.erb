@@ -1,0 +1,22 @@
+<!-- Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Contact Us</h4>
+      </div>
+      <form action="<%= ENV['API_URL'] %>/send_contact" method="POST">
+        <div class="modal-body">
+          <input type="hidden" value="<%= ENV['SITE'] %>" name="site" />
+          <input type="text" class="form-control formInput" placeholder="Name" required name="name"/>
+          <input type="text" class="form-control formInput" placeholder="Email" required name="email"/>
+          <textarea class="form-control formInput" placeholder="Your Message..." required name="body"></textarea>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" class="btn contact-send" value="Send"/>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

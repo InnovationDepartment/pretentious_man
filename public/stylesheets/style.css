@@ -1,0 +1,74 @@
+.logo {
+	background-image: url("https://s3-us-west-2.amazonaws.com/mother-mighty/static/MotherMighty-Logo.png");
+}
+
+#imageCarousel {
+	background-image: url('../images/bg1.png');
+}
+
+.referralProfile .referralProfileHeader .referralProfileHeaderImage {
+	background-image: url('../images/bg1.jpg');
+}
+
+.referralProfile .large-header {
+	background-image: url('../images/bg1.jpg');
+}
+
+.referralProfile .section3 {
+	background-image: url('../images/bg3.jpg');
+}
+
+.transparent-box .header {
+	font-size: 32px;
+}
+
+.transparent-box .sub-header {
+	font-size: 24px;
+	color: #3e5b59;
+}
+
+.transparent-box .formSubmit {
+	background: #3e5b59;
+}
+
+.transparent-box .social {
+	color: #3e5b59;
+}
+
+.red-text {
+	color: #3e5b59;
+}
+
+.footer {
+	border-top: 1px solid #3e5b59;
+	background-color: #3e5b59;
+}
+
+.footer .footer-link {
+	color: #fff;
+}
+
+.footer .copyright-container .copyright {
+	color: #fff;
+}
+
+.footer .footer-header {
+	color: #fff;
+}
+
+body {
+	background: #3e5b59;
+}
+
+.modal-header {
+	background: #3e5b59;
+}
+
+.sample {
+	border-color: #3e5b59;
+	color: #3e5b59;
+}
+
+.cursive {
+	font-family: 'Dancing Script', cursive;
+}

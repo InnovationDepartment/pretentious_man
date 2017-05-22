@@ -1,0 +1,66 @@
+<!-- Modal -->
+<div class="modal fade" id="referModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Refer a Friend</h4>
+      </div>
+      <div class="modal-body">
+        <div id="fb-root"></div>
+        <!-- <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=564241437078326";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script> -->
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '181647138934368',
+              xfbml      : true,
+              version    : 'v2.7'
+            });
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <div class="container-fluid">
+          <div class="row">
+            <form action="/referral_post" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="col-xs-8 col-xs-offset-2">
+              <p class="share openSansLight"> By Email: </p>
+              <input type="email" value="" name="EMAIL" class="form-control formInput" id="mce-EMAIL" required placeholder="Friend's Email">
+              <input type="text" name="FNAME" placeholder="Your name" required="true" class="form-control formInput">
+              <input type="text" name="LNAME" placeholder="Your friend's name" required="true" class="form-control formInput">
+              <input type="submit" value="REFER" class="col-xs-12 formSubmit openSansLight" style="border-radius: 3px;">
+              <div id="mce-responses" class="clear">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+              </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_67082f01870c2deeaed7be149_ba3a06d194" tabindex="-1" value=""></div>        
+            </form>
+          </div>
+          <div class="row" style="margin-top: 20px;">
+            <div class="col-xs-8 col-xs-offset-2">
+              <p class="share openSansLight"> On Social Media: </p>
+              <div style="display: flex; justify-content: center;">
+                <div style="display: inline-block; margin-right: 20px;">
+                  <a href="https://twitter.com/share" class="twitter-share-button share-button" data-text="Have you checked out Wanderfull yet?" data-dnt="true" data-show-count="false">Share on Twitter</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+                <div class="fb-share-button share-button" data-href="http://thewanderfull.com" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.fashionrulesapply.com%2F&amp;src=sdkpreparse">Share</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="row text-center referralProfileHeader">
+	<div class="referralProfileHeaderImage">
+		&nbsp;
+	</div>
+	<div class="col-md-12 referralProfileHeaderText">
+		<h1 class="col-md-12">Wanderfull</h1>
+		<h2 class="col-md-12">Referral Program</h2>
+		<p class="col-md-12">Spread the word and earn some gifts. </p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-4 referralInfoContainer">
+			<div class="text-center referralCountContainer">
+				<div class="col-md-12 referralCount">
+					<div class="col-md-12">
+						<h1><%= @referredUsers.count %></h1>
+						<p>Referrals</p>
+					</div>
+				</div>
+			</div>
+			<h1 class="col-md-12 text-center referralInfoContainerHeader">Share Your Link. Earn Perks</h1>
+			<p class="col-md-12 text-center">Share your link below with friends. Earn a referral point for each new person who signs up through your link!</p>
+			<div class="col-md-10 col-md-offset-1 text-center referralInfoContainerLink">
+				<p class="col-md-12"><%= "#{request.base_url}/refer?referrer=#{session[:current_user]["referral_code"]}" %></p>
+			</div>
+			<div class="col-md-12">
+				<a class="referral-share-link" style="background-color: #3b5998;" href="https://www.facebook.com/sharer/sharer.php?u=<%= "#{request.base_url}/refer?referrer=#{session[:current_user]["referral_code"]}" %>" onClick="FacebookShare=window.open('https://www.facebook.com/sharer/sharer.php?u=<%= "#{request.base_url}/referred?referrer=#{session[:current_user]["referral_code"]}" %>','FacebookShare',width=600,height=300); return false;"><i class="fa fa-facebook"></i></a>
+				<a class="referral-share-link" style="background-color: #00aced;" href="https://twitter.com/home?status=<%= "#{request.base_url}/refer?referrer=#{session[:current_user]["referral_code"]}" %>" onClick="TwitterShare=window.open('https://twitter.com/home?status=<%= "#{request.base_url}/referred?referrer=#{session[:current_user]["referral_code"]}" %>','TwitterShare',width=600,height=300); return false;"><i class="fa fa-twitter"></i></a>
+				<a class="referral-share-link" style="background-color: #007bb6;" href="https://www.linkedin.com/shareArticle?mini=true&url=<%= "#{request.base_url}/refer?referrer=#{session[:current_user]["referral_code"]}" %>&title=Check%20out%20this%20awesome%20newsletter!&summary=&source=" onClick="LinkedInShare=window.open('https://www.linkedin.com/shareArticle?mini=true&url=<%= "#{request.base_url}/referred?referrer=#{session[:current_user]["referral_code"]}" %>&title=Check%20out%20this%20awesome%20newsletter!&summary=&source=','LinkedInShare',width=600,height=300); return false;"><i class="fa fa-linkedin"></i></a>
+				<a class="referral-share-link" style="background-color: #3f3f3f;" href="mailto:?to=&body=<%= "#{request.base_url}/refer?referrer=#{session[:current_user]["referral_code"]}" %>,&subject=Check Out This Awesome Newsletter!"><i class="fa fa-envelope"></i></a>
+			</div>
+		</div>
+		<div class="col-md-8 referralPrizeContainer">
+			<div class="col-md-12 friends-joined">
+				<p><%= @referredUsers.count %> invited friends have joined. Keep checking.</p>
+			</div>
+			<div class="col-md-12 hidden-xs">
+				<div class="progress">
+				  <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%= (@referredUsers.count - 25) * 1.333333 %>%">
+				  </div>
+				 	<div class="row ticks">
+				 		<% [25, 50, 75, 100].each do |val| %>
+							<span class="tick <%= @referredUsers.count >= val ? 'highlighted' : '' %>"><%= val %></span>
+						<% end %>
+					</div>
+				</div>
+			</div>
+			<% @rewards.each do |reward| %>
+				<div class="col-md-3">
+					<div class="col-md-12 text-center referralPrizeItem" style="<%= "background: #fff;" if @referredUsers.count >= reward["cost"] %>">
+						<img src="<%= reward['image'] %>" class="col-md-8 col-md-offset-2" style="<%= "opacity: 1;" if @referredUsers.count >= reward["cost"] %>"/>
+						<p class="col-xs-12"><%= reward["title"] %></p>
+						<% if @referredUsers.count >= reward["cost"] && !(session[:current_user]["claimed_rewards"].include?(reward["cost"])) %>
+							<form method="POST" action="<%= ENV['API_URL'] %>/claim_reward" class="col-xs-12 claim-reward">
+								<input type="hidden" value="<%= reward['id'] %>" name="reward" />
+								<input type="hidden" value="<%= session[:current_user]["email"] %>" name="email" />
+								<input type="hidden" value="<%= ENV['SITE'] %>" name="site" />
+								<input type="submit" value="Claim Now"/>
+							</form>
+						<% elsif @referredUsers.count >= reward["cost"] && session[:current_user]["claimed_rewards"].include?(reward["cost"]) %>
+							<button class="claimed">Claimed</button>
+						<% else %>
+							<div class="col-md-12">
+								<span><i class="fa fa-lock"></i></span>
+							</div>
+						<% end %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+<div class="row fine-print-container">
+	<h1 class="col-md-10 col-md-offset-1 text-center fine-print"><em>Rules:  All referrals must be verified as actual subscribers of Wanderfull; no duplicate / fake email addresses or temporary accounts. Images are for illustration purposes only.</em></h1>
+	<h2 class="col-md-10 col-md-offset-1 text-center tiny-fine-print"><em>Wanderfull reserves the right to amend this program and its prizes at any time.</em></h2>
+	<h3 class="col-md-10 col-md-offset-1 text-center fine-print">&copy; <%= Time.now.year %> Wanderfull</h3>
+</div>

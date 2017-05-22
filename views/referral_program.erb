@@ -1,0 +1,79 @@
+<div class="row large-header">
+	<div class="col-md-12 dark-tint">
+		<form action="/get-referral-code" method="POST" class="col-md-6 col-md-offset-3 text-center">
+			<h1 class="col-md-12 brand">Wanderfull</h1>
+			<h1 class="col-md-12 heading">Become A Wanderer</h1>
+			<hr class="divider col-md-2 col-md-offset-5" />
+			<p class="col-md-12 description">Help others explore the world, all while picking up some cool gifts for yourself, by becoming a Wanderfull Ambassador.</p>
+			<p class="col-md-12 requirement">Refer 25 friends to get started</p>
+			<input type="email" placeholder="Type Your Email Here" name="email" required class="col-xs-12 col-md-12 email"/>
+			<input type="hidden" name="referrer" value="<%= @referrer.present? ? @referrer.id : nil %>" />
+			<input type="hidden" name="site" value="<%= ENV['SITE'] %>" />
+			<input type="submit" value="Sign Up & Get Your Referral Link" class="col-xs-12 col-md-12 submit"/>
+		</form>
+	</div>
+</div>
+<div class="row section2">
+	<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-3">
+			<div class="row text-center referralPrizeItem">
+				<img src="https://s3-us-west-2.amazonaws.com/wanderfull/static/plane.png" class="col-md-6 col-md-offset-3" />
+				<h1 class="col-xs-12 perk-title">Travel Voucher</h1>
+				<p class="col-xs-12 perk-description">Want to travel but lack the funds? Pick up a travel voucher to start wandering today.</p>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="row text-center referralPrizeItem">
+				<img src="https://s3-us-west-2.amazonaws.com/wanderfull/static/Mail.png" class="col-md-6 col-md-offset-3" />
+				<h1 class="col-xs-12 perk-title">Postcards</h1>
+				<p class="col-xs-12 perk-description">Pick up some postcards we selected from the most picturesque locations on earth.</p>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="row text-center referralPrizeItem">
+				<img src="https://s3-us-west-2.amazonaws.com/wanderfull/static/tshirt.png" class="col-md-6 col-md-offset-3" />
+				<h1 class="col-xs-12 perk-title">T-Shirt</h1>
+				<p class="col-xs-12 perk-description">Show everyone you are a part of the Wanderfull community with these awesome t-shirts</p>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="row text-center referralPrizeItem">
+				<img src="https://s3-us-west-2.amazonaws.com/wanderfull/static/backpack.png" class="col-md-6 col-md-offset-3" />
+				<h1 class="col-xs-12 perk-title">Backpack</h1>
+				<p class="col-xs-12 perk-description">Travel the world in style with a Wanderfull backpack.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row section3">
+	<div class="col-md-12 dark-tint">
+		<div class="col-md-6 col-md-offset-3 text-center">
+			<h1 class="col-md-12 heading">How it Works</h1>
+			<hr class="divider col-md-4 col-md-offset-4" />
+			<p class="col-md-12 description">Use your unique link to refer your friends to join the Wanderfull community</p>
+			<p class="col-md-12 requirement">Refer Friends to Win Prizes</p>
+			<div class="col-md-6">
+				<img src="http://d17zfk1skw2aas.cloudfront.net/wp/wp-content/uploads/2017/01/09145122/ThePath-Icons-Link.png" class="col-md-6 col-md-offset-3" />
+				<p class="col-md-8 col-md-offset-2 how-it-works-perk">
+					Unlock Awesome Access to our Premium Content
+				</p>
+			</div>
+			<div class="col-md-6">
+				<img src="http://d17zfk1skw2aas.cloudfront.net/wp/wp-content/uploads/2017/01/09145113/ThePath-Icons-Gift.png" class="col-md-6 col-md-offset-3" />
+				<p class="col-md-8 col-md-offset-2 how-it-works-perk">
+					Be Rewarded for Sharing Referring Friends
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row section4">
+	<div class="col-md-6 col-md-offset-3">
+		<h1 class="col-md-12 heading text-center">Need help referring people? Here are some great ways to get started.</h1>
+		<ul class="col-md-10 col-md-offset-1">
+			<li>Share an issue on Facebook to let everyone know how awesome the newsletter is.</li>
+			<li>Forward an issue to some of your friends or coworkers</li>
+			<li>Spread your referral code on sites like Reddit or other social media platforms</li>
+		</ul>
+	</div>
+</div>
