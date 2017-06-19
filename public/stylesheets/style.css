@@ -1,5 +1,7 @@
 .logo {
-	background-image: url("https://s3-us-west-2.amazonaws.com/mother-mighty/static/MotherMighty-Logo.png");
+	background-image: url("https://s3-us-west-1.amazonaws.com/pretentious-man/PretentiousMan3c.png");
+	background-size: 60%;
+	background-position: center;
 }
 
 #imageCarousel {
