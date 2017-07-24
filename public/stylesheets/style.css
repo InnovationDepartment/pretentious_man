@@ -58,6 +58,10 @@
 	color: #fff;
 }
 
+.modal .iframe {
+	height: 4400px;
+}
+
 body {
 	background: #3e5b59;
 }
