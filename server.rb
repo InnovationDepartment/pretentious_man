@@ -14,6 +14,7 @@ before '/referrer-profile' do
 end
 
 get '/' do
+	@utm = params[:utm_source]
 	erb :index
 end
 
@@ -25,14 +26,14 @@ end
 
 get '/referrer-profile' do
 	response = HTTParty.post(
-		"#{ENV['API_URL']}/get_user_info", 
+		"#{ENV['API_URL']}/get_user_info",
     query: {
-    	email: session[:current_user]["email"], 
-    	referrer: session[:current_user]["referral_code"], 
+    	email: session[:current_user]["email"],
+    	referrer: session[:current_user]["referral_code"],
     	site: ENV['SITE']
     },
-    headers: { 
-    	'Content-Type' => 'application/json' 
+    headers: {
+    	'Content-Type' => 'application/json'
     }
   )
 
@@ -43,16 +44,16 @@ get '/referrer-profile' do
 
 	@rewards = response["rewards"]
 	@referredUsers = response["referred_users"]
-	
+
 	erb :referrer_profile, :layout => :referral_layout
 end
 
 post '/get-referral-code' do
 	response = HTTParty.post(
-		"#{ENV['API_URL']}/get_referral_code", 
+		"#{ENV['API_URL']}/get_referral_code",
     query: params,
-    headers: { 
-    	'Content-Type' => 'application/json' 
+    headers: {
+    	'Content-Type' => 'application/json'
     }
   )
 
@@ -62,7 +63,7 @@ post '/get-referral-code' do
 end
 
 def authenticate_user
-	unless session[:current_user].present? 
+	unless session[:current_user].present?
 		redirect '/refer'
 	end
 end
